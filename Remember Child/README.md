@@ -1,5 +1,7 @@
 # Remember Child
 
+https://forum.cockos.com/showthread.php?t=255220
+
 This script provides two commands:
 
 - Remember Child
