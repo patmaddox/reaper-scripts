@@ -1,5 +1,10 @@
 function cycleSiblings(first, last, iterator)
   selectedTrack = reaper.GetSelectedTrack(0, 0)
+
+  if not selectedTrack then
+    return
+  end
+
   selectedParent = reaper.GetParentTrack(selectedTrack)
   siblings = {}
 
