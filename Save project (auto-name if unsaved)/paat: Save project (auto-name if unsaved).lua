@@ -25,9 +25,14 @@ function save_with_auto_name()
   reaper.Main_openProject("noprompt:" .. new_path)
 end
 
-proj, projfn = reaper.EnumProjects(-1)
-if projfn == "" then
-  save_with_auto_name()
-else
-  reaper.Main_SaveProject(proj)
+function save_project_auto_name_if_unsaved()
+  proj, projfn = reaper.EnumProjects(-1)
+  if projfn == "" then
+    save_with_auto_name()
+  else
+    reaper.Main_SaveProject(proj)
+  end
+  return
 end
+
+reaper.defer(save_project_auto_name_if_unsaved)
